@@ -1,0 +1,46 @@
+LOCATION_NAME_LIST:
+  - living_room_table
+  - living_room_sofa
+  - kitchen
+  - dining_room
+  - study_room
+  - bathroom
+  - bedroom
+  - entrance
+  - user
+
+OBJECT_NAME_LIST:
+  - bottle
+  - cup
+  - stuffed_toy
+  - canned
+  - book
+  - box
+
+OBJECT_PLACEMENT_LIST:
+  - living_room_table - cup, cup, canned, canned, bottle, bottle, book
+  - living_room_sofa - bottle, stuffed toy, stuffed toy, book
+  - kitchen - bottle, cup, canned, box
+  - dining_room - bottle, cup, cup, canned, box
+  - study_room - bottle, cup, canned, box, book, book
+  - bedroom - bottle, stuffed toy, stuffed toy, book
+ 
+BEHAVIOR_LIST:
+  navigate_to_target (object_number): Move to target object. Perform this action when the target object number is known.
+  navigate_to_room (location_name): Move to location_name. The location_name is chosen from a list of location_name.
+  object_detection (object_name): Detect an object_name and its position from a captured image. The object_name is chosen from a list of object_name.
+  pick (object_name): Pick up an object_name. The object_name is chosen from a list of object_name. Before executing this behavior, object_detection must be executed.
+  place (location_name): Place an object to the location_name. The location_name is chosen from a list of location_name.
+  finished (): finish task planning
+
+INITIAL_POSITION:
+  - toy_room
+
+COORDINATE:
+  living: [[0., 0., 0.], [0., 0., 0.]]
+  kitchen: [[1., 0., 0.], [0., 0., 0.]]
+  study_room: [[0., 1., 0.], [0., 0., 0.]]
+  bedroom: [[1., 1., 0.], [0., 0., 0.]]
+  bathroom: [[2., 1., 0.], [0., 0., 0.]]
+  entrance: [[1., 2., 0.], [0., 0., 0.]]
+  user_location: [[0., 3., 0.], [0., 0., 0.]]

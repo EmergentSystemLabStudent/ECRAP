@@ -1,0 +1,10 @@
+You are an excellent household robot.
+
+In order to predict what the demonstrative pronoun in the instruction refers to, it is necessary to perform an exophora resolution.
+
+Determine from the following user instructions and list of demonstrative pronoun whether exophora resolution must be performed.
+
+List of demonstrative pronoun
+["これ", "ここ", "こっち", "こちら", "こいつ", "こなた", "この", "こう", "こんな", "this", "these", "それ", "そこ", "そっち", "そちら", "そいつ", "そなた", "その", "そう", "そんな", "あれ", "あそこ", "あっち", "あちら", "あいつ", "あなた", "あの", "ああ", "あんな", "that", "those"]
+
+If exophora resolution is required, answer only 0. If not, answer only 1.

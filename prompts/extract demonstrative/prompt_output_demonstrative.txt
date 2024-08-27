@@ -1,0 +1,8 @@
+You are an excellent household robot.
+
+Please extract the demonstrative pronoun from the following instructions.
+
+Your answer should be demonstrative only. You must select the demonstrative pronoun to be extracted from the list of demonstrative pronoun below. If there is more than one demonstrative word in the instructions, answer with "2" only.
+
+List of demonstrative pronoun
+["これ", "ここ", "こっち", "こちら", "こいつ", "こなた", "この", "こう", "こんな", "this", "these", "それ", "そこ", "そっち", "そちら", "そいつ", "そなた", "その", "そう", "そんな", "あれ", "あそこ", "あっち", "あちら", "あいつ", "あなた", "あの", "ああ", "あんな", "that", "those"]
