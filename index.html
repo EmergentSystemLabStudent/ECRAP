@@ -1,185 +1,428 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-  <meta name="keywords" content="ECRAP">
-  <title>ECRAP: Exophora Resolution and Classifying User Commands for Robot Action Planning by Large Language Models</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 70px;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .fixed-width {
-      width: 700px;
-      margin: 10px auto;
-    }
-
-    .center-align {
-      text-align: center;
-    }
-
-    .text-justify {
-      text-align: justify;
-    }
-
-    video {
-      width: 700px;
-      height: auto;
-      display: block;
-      margin: 10px auto;
-    }
-
-    .list-centered {
-      list-style: none; /* Remove default list style */
-      padding: 0;
-      text-align: left;
-      margin: 0 auto; /* Center align the list */
-      counter-reset: list-counter; /* Initialize the counter */
-    }
-    
-    .list-centered li {
-      margin-left: 1.5em; /* Indent list items */
-      position: relative;
-    }
-    
-    .list-centered li:before {
-      content: counter(list-counter) ". "; /* Add counter before list items */
-      counter-increment: list-counter; /* Increment the counter */
-      position: absolute;
-      left: -1.5em; /* Adjust position of numbers */
-    }
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="ECRAP">
+  <meta property="og:title" content="ECRAP"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="https://emergentsystemlabstudent.github.io/ECRAP/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
 
-    .col-md-8 {
-      width: 700px;
-      margin: 10px auto;
-    }
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .github-link {
-      display: flex;
-      justify-content: center;
-    }
 
-    .github-link a {
-      margin: 10px;
-    }
+  <title>PointingImgEst</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
 
-    .image-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
-    .image-container img {
-      width: 700px;
-      height: auto;
-    }
-
-    .image-caption {
-      text-align: center;
-      margin-top: 10px; /* Adjust the space between the image and the caption */
-      font-style: italic;
-      color: #555; /* Optional: change the caption color */
-    }
-
-    .video-container {
-        margin: 10px;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .video-container iframe {
-        width: 700px;
-        height: 394px;
-    }
-  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/carousel.js"></script>
 </head>
+
 <body>
-  <div class="container" id="main">
-    <div class="row">
-      <h2 class="col-md-12">
-         ECRAP: Exophora Resolution and Classifying User Commands for Robot Action Planning by Large Language Models
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ECRAP: Exophora Resolution and Classifying User Commands for Robot Action Planning by Large Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <!-- Paper authors -->
+            <span class="author-block">
+              Akira Oyama<sup>1,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.jp/citations?user=KPxSCJUAAAAJ&hl=ja&oi=ao" target="_blank">Shoichi Hasegawa<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.jp/citations?user=Y4qjYvMAAAAJ&hl=ja&oi=ao" target="_blank">Yoshinobu Hagiwara<sup>1,2</sup>,</a></span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.jp/citations?user=jtB7J0AAAAAJ&hl=ja&oi=ao" target="_blank">Akira Taniguchi<sup>1</sup>,</a></span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.jp/citations?user=dPOCLQEAAAAJ&hl=ja&oi=ao" target="_blank">Tadahiro Taniguchi<sup>1,3</sup></a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <sup>1</sup>Ritsumeikan University,
+              <sup>2</sup>Soka University,
+              <sup>3</sup>Kyoto University
+              <br><span>Accepted at IEEE IRC 2024.</span>
+            </span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Arxiv PDF link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>
+                    Paper (coming soon)
+                  </span>
+                </a>
+              </span>
+
+              <!-- Slide link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Slide (coming soon)</span>
+                </a>
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/EmergentSystemLabStudent/ECRAP" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <!-- ArXiv abstract Link -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
       </h2>
     </div>
   </div>
-  
-  <p class="center-align">Akira Oyama*, <a href="https://scholar.google.com/citations?user=KPxSCJUAAAAJ&hl" target=“_blank” rel=“noopener noreferrer”>Shoichi Hasegawa</a>, <a href="https://scholar.google.com/citations?user=Y4qjYvMAAAAJ&hl" target=“_blank” rel=“noopener noreferrer”>Yoshinobu Hagiwara</a>, <a href="https://scholar.google.com/citations?user=jtB7J0AAAAAJ&hl" target=“_blank” rel=“noopener noreferrer”>Akira Taniguchi</a>, <a href="https://scholar.google.com/citations?user=dPOCLQEAAAAJ&hl" target=“_blank” rel=“noopener noreferrer”>Tadahiro Taniguchi</a></p>
-  
-  <div class="github-link">
-    <a href="https://github.com/EmergentSystemLabStudent/ECRAP/tree/master" target=“_blank” rel=“noopener noreferrer”>Github</a>
-    <!-- <a href="" target=“_blank” rel=“noopener noreferrer”>Paper</a> -->
-    <a href="" target=“_blank” rel=“noopener noreferrer”>Slide</a>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The ability to understand a variety of verbal instructions and perform tasks is important for daily life support robots.
+            People's speech to the robot may include greetings and demonstratives, and the robot needs to act appropriately in such cases.
+            In the case of instruction including demonstratives such as "Bring me that cup," exophora resolution (ER) is needed to find the specific object corresponding to "that cup."
+            Recently, action planning based on large language models (LLMs) has been necessary for robots to act and has been rapidly studied.
+            However, in previous action planning research, it was difficult to identify the target object from language instructions including demonstratives, and to perform the planning desired by the user.
+            This study aims to plan actions expected by the user from various user language queries, such as greetings or those containing demonstratives.
+            We propose a method for action planning from a variety of language instructions by combining a task classification module, an ER framework, and LLMs.
+            In the experiment, various queries were given, including queries containing demonstratives and queries that do not require the robot to move but only to respond, and the planning accuracy was compared to a baseline without an exophora resolution framework.
+            The results show that the proposed method is approximately 1.3 times more accurate than the baseline.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+<!-- End paper abstract -->
 
-
-  <!-- <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/n8se-MgPi50?si=B5B60-8XXMO-j2CC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div> -->
-
-  <div class="image-container">
-    <img src="./abstract_v3.svg" alt="Overview of abstract">
-    <div class="image-caption">Figure 1: Overview of our abstract</div>
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Overview</h2>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item">
+          <img src="static/images/overview.svg" alt="image of model"/>
+          <h2 class="subtitle has-text-centered">
+            An overview of our research. 
+            The robot classifies tasks based on the user's query and determines the requisite processing. 
+            If the query necessitates exophora resolution (ER), the robot executes ER using the query from the user and skeleton information to identify the target object. 
+            If the query does not require ER or following the identification of the target object, the robot proceeds with action planning.
+          </h2>
+        </div>
+        <!-- <div class="item">
+          <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Second image description.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Third image description.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Fourth image description.
+          </h2>
+        </div> -->
+      <!-- </div> -->
+    </div>
   </div>
-  
-  <h2 class="fixed-width">Abstract</h2>
-  <p class="center-align fixed-width text-justify">
-    The ability to understand a variety of verbal instructions and perform tasks is important for daily life support robots.
-    People's speech to the robot may include greetings and demonstratives, and the robot needs to act appropriately in such cases.
-    In the case of instruction including demonstratives such as ``Bring me that cup,'' exophora resolution (ER) is needed to find the specific object corresponding to ``that cup.''
-    Recently, action planning based on large language models (LLMs) has been necessary for robots to act and has been rapidly studied.
-    However, in previous action planning research, it was difficult to identify the target object from language instructions including demonstratives, and to perform the planning desired by the user.
-    This study aims to plan actions expected by the user from various user language queries, such as greetings or those containing demonstratives.
-    We propose a method for action planning from a variety of language instructions by combining a task classification module, an ER framework, and LLMs.
-    In the experiment, various queries were given, including queries containing demonstratives and queries that do not require the robot to move but only to respond, and the planning accuracy was compared to a baseline without an exophora resolution framework.
-    The results show that the proposed method is approximately 1.3 times more accurate than the baseline.
-  </p>
+</section>
+<!-- End image carousel -->
 
-  <h2 class="fixed-width">Approach</h2>
-  <p class="center-align fixed-width text-justify">
-  </p>
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Exophora resolution and Classifying user commands for Robot Action Planning (ECRAP)</h2>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item">
+          <img src="static/images/proposed_method.svg" alt="image of model"/>
+          <h2 class="subtitle has-text-centered">
+            An overview of ECRAP. 
+            The proposed method consists of four modules: (a) task classification, (b) response generation, (c) ER framework, and (d) robot action planning. 
+            First, the system performs task classification based on user queries. 
+            The robot only replies to queries for which it has no task to execute. 
+            If ER is required, action planning is conducted after identifying the target object using the ER framework. 
+            If ER is not necessary, action planning proceeds directly without it.
+          </h2>
+        </div>
+        <!-- <div class="item">
+          <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Second image description.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Third image description.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Fourth image description.
+          </h2>
+        </div> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
 
-  
-  
-  <div class="col-md-8">
-  <h2 class="text-center">Citation</h2>
-  <p class="text-justify">
-    This paper was accepted on IEEE International Conference on Robotic Computing (IRC 2024), 
-    and the BibTeX for the paper is below.
-    <textarea id="bibtex" class="form-control" readonly rows="6" cols="105">
-      @inproceedings{ecrap2024,
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Global localization</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <source src="static/videos/carousel4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Success rate of action planning when the query is in english</h2>
+      <p>
+        We prepared different type's instructions. 
+        "Not a task" is Greetings or soliloquies (ex. Hello). 
+        "w/ demonstrative" is instruction with a demonstrative (Bring me that bottle).
+        "w/o demonstrative" is instruction without a demonstrative (Bring a bottle).
+        The proposed method achieved a high score than other methods.
+      </p>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+
+        <div class="item">
+          <img src="static/images/result_english.png" alt="image of representations"/>
+          <!-- <iframe  src="static/pdfs/model2.pdf" width="100%" height="550"></iframe> -->
+        </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Success rate of action planning when the query is in japanese</h2>
+      <p>
+        We prepared different type's instructions. 
+        "Not a task" is Greetings or soliloquies (ex. Hello). 
+        "w/ demonstrative" is instruction with a demonstrative (Bring me that bottle).
+        "w/o demonstrative" is instruction without a demonstrative (Bring a bottle).
+        The proposed method achieved a high score than other methods.
+      </p>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+
+        <div class="item">
+          <img src="static/images/result_japanese.png" alt="image of representations"/>
+          <!-- <iframe  src="static/pdfs/model2.pdf" width="100%" height="550"></iframe> -->
+        </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/pointingimgest_poster.pdf" width="100%" height="550">
+        </iframe>
+
+    </div>
+  </div>
+</section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- <pre><code>BibTex Code Here</code></pre> -->
+    <pre><code>
+      @inproceedings{oyama2024ecrap,
+        author={Oyama, Akira  and Hasegawa, Shoichi  and Hagiwara, Yoshinobu  and Taniguchi, Akira  and Taniguchi, Tadahiro},
         title={ECRAP: Exophora Resolution and Classifying User Commands for Robot Action Planning by Large Language Models},
-        author={Akira Oyama and Shoichi Hasegawa and Yoshinobu Hagiwara and Akira Taniguchi and Tadahiro Taniguchi},
         booktitle={IEEE International Conference on Robotic Computing (IRC)},
         year={2024, accepted}
-}</textarea>
-  </p>
-</div>
-
-  <div class="col-md-8">
-    <h2 class="text-center">Other links</h2>
-    <p class="text-justify">
-      <ul>
-        <li><a href="http://www.em.ci.ritsumei.ac.jp/" target=“_blank” rel=“noopener noreferrer”>Laboratory website</a></li>
-        <li><a href="" target=“_blank” rel=“noopener noreferrer”>Demo video of this research</a></li>
-        <li><a href="https://www.youtube.com/watch?v=UBgZGRG00eA" target=“_blank” rel=“noopener noreferrer”>Demo video of related research</a></li>
-      </ul>
-    </p>
+      }
+    </code></pre>
   </div>
-    
-  <div class="col-md-8">
-    <h2 class="text-center">Acknowledgements</h2>
-    <p class="text-justify">
+</section>
+<!--End BibTex citation -->
+
+<!--Laboratory Information -->
+<section class="section" id="Laboratory Information">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Laboratory Information</h2>
+    <ul>
+      <li><a href="http://www.em.ci.ritsumei.ac.jp/" target="_blank" rel="noopener noreferrer">Emergent Systems Laboratory</a></li>
+      <li><a href="https://www.youtube.com/@tarosouhatsu494/videos" target="_blank" rel="noopener noreferrer">Demonstration Videos of the Laboratory</a></li>
+    </ul>
+  </div>
+</section>
+<!--End Laboratory Information -->
+
+<!--Acknowledgements citation -->
+<section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <!-- <h2 class="title">Acknowledgements</h2> -->
+    <h2 class="title">Funding</h2>
+    <p>
       This work was supported by JSPS KAKENHI Grants-in-Aid for Scientific Research (Grant Numbers JP23K16975, 22K12212), JST Moonshot Research \& Development Program (Grant Number JPMJMS2011).
     </p>
   </div>
-  
-  <script src="script.js"></script>
-</body>
-</html>
+</section>
+<!--End Acknowledgements citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+  </body>
+  </html>
